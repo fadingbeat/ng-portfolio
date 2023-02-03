@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/talentlyft-interview-a01'),
+      dir: require('path').join(__dirname, './coverage/angular-template-project'),
       subdir: '.',
       reporters: [
         { type: 'html' },
