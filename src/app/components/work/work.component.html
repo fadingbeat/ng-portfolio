@@ -1,0 +1,22 @@
+<main id="work">
+  <h1 class="lg-heading">
+    My
+    <span class="text-secondary">Work</span>
+  </h1>
+  <h2 class="sm-heading">GitHub Repositories</h2>
+  <div id="gh-repo-list" class="projects">
+    <div class="item" *ngFor="let item of repositories">
+      <p>{{item['name']}}</p>
+      <p>{{item['description']}}</p>
+      <p>{{item['html_url']}}</p>
+    </div>
+  </div>
+  <h2 class="sm-heading">Checkout the projects I have been a part of.</h2>
+  <div class="projects">
+    <div class="item" *ngFor="let project of projects">
+      <a href={{project.url}} target="_blank">
+        <img src={{project.img}} alt={{project.alt}} />
+      </a>
+    </div>
+  </div>
+</main>

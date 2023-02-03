@@ -31,6 +31,11 @@
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
                             "src/styles.scss"
                         ],
+                        "allowedCommonJsDependencies": [
+                            "@octokit",
+                            "@octokit/app",
+                            "@octokit/oauth-app"
+                        ],
                         "scripts": []
                     },
                     "configurations": {
