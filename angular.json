@@ -32,6 +32,7 @@
                             "src/styles.scss"
                         ],
                         "allowedCommonJsDependencies": [
+                            "once",
                             "@octokit",
                             "@octokit/app",
                             "@octokit/oauth-app"

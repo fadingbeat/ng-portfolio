@@ -1,5 +1,7 @@
+import { WorkService } from './../../services/work.service';
 import { Component, OnInit } from '@angular/core';
 import { octokit } from 'environments/env';
+import { throwError } from 'rxjs';
 
 @Component({
     selector: 'app-work',
@@ -7,7 +9,7 @@ import { octokit } from 'environments/env';
     styleUrls: ['./work.component.scss'],
 })
 export class WorkComponent implements OnInit {
-    repositories: [] = [];
+    repositories = [] as any;
     projects = [
         {
             url: 'https://www.missionautomate.com',
@@ -30,20 +32,22 @@ export class WorkComponent implements OnInit {
             alt: 'CSS wonders projects',
         },
     ];
-    constructor() {}
+
+    constructor(private workService: WorkService) {}
 
     ngOnInit() {
-        this.sendReq();
+        this.displayRepoList();
     }
 
-    async sendReq() {
-        const repo = await octokit.request(
-            'GET /users/{username}/repos{?type,sort,direction,per_page,page}',
-            {
-                username: 'fadingbeat',
+    displayRepoList() {
+        this.workService.getRepositories().then(
+            (res) => {
+                this.repositories = res.data;
+                console.log(res);
+            },
+            (err) => {
+                console.log('failed', err);
             }
         );
-        console.log(repo.data);
-        this.repositories = repo.data;
     }
 }
