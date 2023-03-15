@@ -1,0 +1,418 @@
+@import "config";
+@import "menu";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include background;
+  background: $primary-color;
+  color: set-text-color($primary-color);
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+//Headings
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    // background: rgba(lighten($primary-color, 2), 0.5);
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+main {
+  padding: 4rem;
+  // height: 100%;
+  min-height: calc(100vh - 60px);
+
+  .icons {
+    margin-top: 1rem;
+
+    a {
+      padding: 0.4rem;
+
+      &:hover {
+        color: $secondary-color;
+        @include easeOut();
+      }
+    }
+  }
+  &#home {
+    overflow: hidden;
+    h1 {
+      margin-top: 20vh;
+    }
+  }
+  // .flickr-gallery {
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
+  h2 {
+    background: $gradient-color;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.about-info {
+  display: grid;
+  gap: 30px;
+  grid-template-areas:
+    "bioimage bio bio"
+    "job1 job2 job3";
+  grid-template-columns: 1fr, 1fr, 1fr;
+
+  .bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    border-radius: 50%;
+    border: $secondary-color 3px solid;
+  }
+
+  a:hover {
+    color: $secondary-color;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1.5rem;
+  }
+
+  .job-1 {
+    grid-area: job1;
+  }
+  .job-2 {
+    grid-area: job2;
+  }
+  .job-3 {
+    grid-area: job3;
+  }
+
+  .job {
+    background: lighten($primary-color, 5);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 5px solid;
+  }
+}
+
+// Work/Projects
+.projects {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(2, 1fr);
+  img {
+    width: 100%;
+    border: 3px #fff solid;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $secondary-color;
+      @include easeOut;
+    }
+  }
+}
+
+// Gallery page
+.portfolio {
+  display: flex;
+}
+.portfolio-gallery {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+.portfolio-gallery .item img {
+  width: 110px;
+}
+
+// Shutterstock Portfolio
+.shutterstock-gallery {
+  h2 {
+    background: $gradient-color;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: right;
+  width: 25%;
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: $secondary-color;
+  padding: 10px;
+  a {
+    i {
+      float: right;
+      position: relative;
+      top: -6.34rem;
+      color: $secondary-color;
+    }
+  }
+  img {
+    opacity: 1;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.6;
+      cursor: pointer;
+    }
+  }
+}
+
+.content {
+  a {
+    i {
+      top: -6.4rem;
+    }
+  }
+}
+
+// Decorative hover links
+.decorative-link {
+  background: linear-gradient(
+    to bottom,
+    $link-hover-color 0%,
+    $link-hover-color 100%
+  );
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 4px;
+  text-decoration: none;
+  transition: background-size 0.2s;
+  &:hover {
+    background-size: 4px 50px;
+  }
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+  .row {
+    margin: unset;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+  .row {
+    margin: unset;
+  }
+}
+
+// Contact Page
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+
+  div {
+    font-size: 2rem;
+    border: 3px white solid;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    @include easeOut;
+
+    &:hover {
+      padding: 0.5rem 1.5rem;
+      background: $secondary-color;
+      color: set-text-color($secondary-color);
+      span {
+        color: set-text-color($secondary-color);
+      }
+    }
+  }
+}
+
+// Button Styles
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($primary-color, 50);
+  color: #fff;
+}
+.btn-dark {
+  @extend .btn;
+  background: lighten($primary-color, 50);
+  color: #333;
+}
+
+#main-footer {
+  padding: 0.2rem;
+  background: darken($primary-color, 10);
+  color: set-text-color($primary-color);
+  // height: 60px;
+  text-align: center;
+  .footer-container {
+    display: unset !important;
+    .item {
+      color: #d1abbc;
+      display: unset;
+      font-size: xx-large;
+    }
+  }
+  .copyright-item {
+    color: $secondary-color;
+  }
+}
+#footer-gallery {
+  padding: 0.2rem;
+  background: darken($primary-color, 10);
+  color: set-text-color($primary-color);
+  height: fit-content;
+}
+
+.footer-container {
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  max-width: 100%;
+  .columns-right {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .internal-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    a {
+      padding: 0.5rem 1rem;
+    }
+  }
+  .external-links {
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+    a {
+      padding: 0.3rem 0;
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+    .arrow {
+      margin-right: 15px;
+      color: $secondary-color;
+      animation: slide1 1s ease-in-out infinite;
+    }
+  }
+  .copyright-notice {
+    display: flex;
+    justify-content: center;
+    a,
+    span {
+      padding: 2rem 1.5rem;
+    }
+    a {
+      text-decoration: underline;
+    }
+    span {
+      color: $secondary-color;
+    }
+  }
+  .social-icons {
+    i {
+      padding-right: 1rem;
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+
+  .column-1 {
+    h3 {
+      text-transform: uppercase;
+    }
+  }
+}
+
+// The company e-mail link styling
+.company_contact {
+  text-decoration: underline;
+  text-decoration-color: $primary-color;
+  color: $secondary-color;
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+@keyframes slide1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
+}
+
+@import "mobile";

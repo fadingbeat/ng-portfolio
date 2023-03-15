@@ -16,10 +16,10 @@ describe('AppComponent', () => {
         expect(app).toBeTruthy();
     });
 
-    it(`should have as title 'angular-template-project'`, () => {
+    it(`should have as title 'ng-portfolio'`, () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance;
-        expect(app.title).toEqual('angular-template-project');
+        expect(app).toEqual('ng-portfolio');
     });
 
     it('should render title', () => {
@@ -27,7 +27,7 @@ describe('AppComponent', () => {
         fixture.detectChanges();
         const compiled = fixture.nativeElement;
         expect(compiled.querySelector('.content span').textContent).toContain(
-            'angular-template-project app is running!'
+            'ng-portfolio app is running!'
         );
     });
 });

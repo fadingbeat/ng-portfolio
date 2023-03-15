@@ -1,0 +1,152 @@
+// Wide screens
+
+@include mediaXL {
+    .projects {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .footer-container {
+        .portfolio-gallery {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .item {
+            color: $link-hover-color;
+            align-items: flex-start;
+            display: flex;
+            img {
+                width: 60px;
+            }
+        }
+    }
+}
+
+// Desktops & Laptops
+@include mediaLg {
+    .projects,
+    .portfolio-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #footer-gallery {
+        height: unset;
+    }
+    .column {
+        font-size: 60%;
+    }
+}
+
+// Tablets & Small Laptops
+@include mediaMd {
+    main {
+        align-items: center;
+        text-align: center;
+
+        .lg-heading {
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+    }
+
+    ul.menu-nav,
+    div.menu-branding {
+        float: none;
+        width: 100%;
+        min-height: 0;
+
+        &.show {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    .menu-nav {
+        height: 75vh;
+        transform: translate3d(-100%, 0, 0);
+        font-size: 24px;
+    }
+
+    .menu-branding {
+        height: 25vh;
+        transform: translate3d(100%, 0, 0);
+
+        .portrait {
+            // background: url("../img/avatar-sm.jpg");
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .about-info {
+        grid-template-areas:
+            "bioimage"
+            "bio"
+            "job1"
+            "job2"
+            "job3";
+        grid-template-columns: 1fr;
+    }
+    .projects,
+    .portfolio-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 2.4rem;
+    }
+    #footer-gallery {
+        height: unset;
+    }
+    .footer-container {
+        font-size: xx-large;
+        text-align: center;
+        white-space: nowrap;
+        h3,
+        p,
+        .column-2 :not(:last-child),
+        .column-3 {
+            display: none;
+        }
+        .column-1 {
+            align-self: center;
+        }
+    }
+}
+
+// Smartphones
+@include mediaSm {
+    main {
+        padding: 4rem 0;
+    }
+    main#home h1 {
+        margin-top: 10vh;
+    }
+    #main-footer {
+        .footer-container {
+            .item {
+                font-size: small;
+            }
+        }
+    }
+    .footer-container {
+        justify-content: space-evenly;
+        font-size: 100%;
+        flex-direction: column;
+        h3,
+        p,
+        .column-2 :not(:last-child),
+        .column-3 {
+            display: none;
+        }
+    }
+    .portfolio {
+        align-items: center;
+    }
+    .portfolio-gallery {
+        grid-template-columns: repeat(5, 1fr);
+        .item {
+            font-size: 0.6em;
+            color: $link-hover-color;
+            align-items: flex-start;
+            display: flex;
+            img {
+                width: 25px;
+            }
+        }
+    }
+
+    #gallery h1 {
+        font-size: 56px;
+    }
+}
