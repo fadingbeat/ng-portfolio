@@ -8,6 +8,7 @@
     <div class="item" *ngFor="let item of repositories">
       <p>{{item.name}}</p>
       <p>{{item.description}}</p>
+      <p>{{item.language}}</p>
       <a href={{item.html_url}} target="_blank">
         {{item.html_url}}
       </a>
