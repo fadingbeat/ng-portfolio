@@ -1,7 +1,5 @@
 import { WorkService } from './../../services/work.service';
 import { Component, OnInit } from '@angular/core';
-import { octokit } from 'environments/env';
-import { throwError } from 'rxjs';
 
 @Component({
     selector: 'app-work',
@@ -40,10 +38,9 @@ export class WorkComponent implements OnInit {
     }
 
     displayRepoList() {
-        this.workService.getRepositories().then(
+        this.workService.handler().then(
             (res) => {
-                this.repositories = res.data;
-                console.log(res);
+                this.repositories = res;
             },
             (err) => {
                 console.log('failed', err);

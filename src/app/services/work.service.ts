@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { octokit } from 'environments/env';
+import axios from 'axios';
 
 @Injectable({
     providedIn: 'root',
@@ -7,10 +7,17 @@ import { octokit } from 'environments/env';
 export class WorkService {
     constructor() {}
 
-    async getRepositories() {
-        const repo = await octokit.request('GET /users/{username}/repos', {
-            username: 'fadingbeat',
-        });
-        return repo;
-    }
+    handler = async () => {
+        const url = '.netlify/functions/fetch-git';
+        try {
+            const { data } = await axios.get(url);
+            return data;
+        } catch (error) {
+            const { status, statusText, headers, data } = error.response;
+            return {
+                statusCode: status,
+                body: JSON.stringify({ status, statusText, headers, data }),
+            };
+        }
+    };
 }
