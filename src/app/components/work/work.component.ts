@@ -20,9 +20,9 @@ export class WorkComponent implements OnInit {
             alt: 'Forest Creations project',
         },
         {
-            url: 'https://objection.co/',
+            url: 'https://askfortransparency.com/',
             img: 'assets/projects/ProjectOBJ.png',
-            alt: 'ObjectionCo project',
+            alt: 'The Transparency Company project',
         },
         {
             url: 'https://github.com/fadingbeat/css-wonders',
