@@ -6,10 +6,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { TextFieldModule } from '@angular/cdk/text-field';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
     imports: [
@@ -24,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatSnackBarModule,
         MatProgressSpinnerModule,
         MatDialogModule,
+        MatExpansionModule,
     ],
     exports: [
         MatToolbarModule,
@@ -37,6 +39,7 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatSnackBarModule,
         MatProgressSpinnerModule,
         MatDialogModule,
+        MatExpansionModule,
     ],
 })
 export class MaterialModule {}
