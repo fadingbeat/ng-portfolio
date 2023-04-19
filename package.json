@@ -26,6 +26,7 @@
         "dotenv": "^16.0.3",
         "octokit": "^2.0.14",
         "rxjs": "~6.6.0",
+        "shutterstock-api": "^1.1.32",
         "tslib": "^2.1.0",
         "yargs": "^17.7.1",
         "zone.js": "~0.11.4"
@@ -37,7 +38,7 @@
         "@angular/cli": "~12.0.4",
         "@angular/compiler-cli": "~12.0.4",
         "@types/jasmine": "~3.6.0",
-        "@types/node": "^14.18.38",
+        "@types/node": "^14.18.42",
         "codelyzer": "^6.0.2",
         "jasmine-core": "~3.7.0",
         "netlify-cli": "^13.1.6",
