@@ -10,9 +10,10 @@ import { GlobalErrorHandler } from './core/global-error-handler';
 import { CommonModule } from '@angular/common';
 import { WorkComponent } from './components/work/work.component';
 import { ErrorDialogService } from './shared/errors/error-dialog.service';
+import { PhotographyComponent } from './components/photography/photography.component';
 
 @NgModule({
-    declarations: [AppComponent, WorkComponent],
+    declarations: [AppComponent, WorkComponent, PhotographyComponent],
     imports: [
         BrowserModule,
         CommonModule,
