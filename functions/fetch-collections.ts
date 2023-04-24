@@ -1,4 +1,3 @@
-import { NoDataRowOutlet } from '@angular/cdk/table';
 import axios from 'axios';
 
 require('dotenv').config();
@@ -7,7 +6,7 @@ export const handler = async () => {
     console.log('Before the call to API');
     const contributorId = process.env.CONTRIBUTOR_ID;
     const collectionId = process.env.COLLECTION_ID;
-    const url = `https://api.shutterstock.com/v2/contributors/${contributorId}`;
+    const url = `https://api.shutterstock.com/v2/contributors/${contributorId}/collections/${collectionId}/items`;
     let data;
     try {
         data = await axios.get(url, {
